@@ -25,6 +25,27 @@
 			remoteGlobalIDString = BB1D150D19C169F8001EC334;
 			remoteInfo = "MU110-3";
 		};
+		BB6D6E8119C5E6B5009DB45D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB6D6E7C19C5E6B5009DB45D /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		BB6D6E8319C5E6B5009DB45D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB6D6E7C19C5E6B5009DB45D /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
+		BB6D6E8519C5E71C009DB45D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB6D6E7C19C5E6B5009DB45D /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +61,7 @@
 		BB1D153419C16A8B001EC334 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		BB1D153619C16ABD001EC334 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BB1D153819C1710F001EC334 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BB6D6E7C19C5E6B5009DB45D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +85,7 @@
 		BB1D150519C169F8001EC334 = {
 			isa = PBXGroup;
 			children = (
+				BB6D6E7C19C5E6B5009DB45D /* Alamofire.xcodeproj */,
 				BB1D151019C169F8001EC334 /* MU110-3 */,
 				BB1D152319C169F8001EC334 /* MU110-3Tests */,
 				BB1D150F19C169F8001EC334 /* Products */,
@@ -118,6 +141,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BB6D6E7D19C5E6B5009DB45D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB6D6E8219C5E6B5009DB45D /* Alamofire.framework */,
+				BB6D6E8419C5E6B5009DB45D /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +164,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BB6D6E8619C5E71C009DB45D /* PBXTargetDependency */,
 			);
 			name = "MU110-3";
 			productName = "MU110-3";
@@ -185,6 +218,12 @@
 			mainGroup = BB1D150519C169F8001EC334;
 			productRefGroup = BB1D150F19C169F8001EC334 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BB6D6E7D19C5E6B5009DB45D /* Products */;
+					ProjectRef = BB6D6E7C19C5E6B5009DB45D /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BB1D150D19C169F8001EC334 /* MU110-3 */,
@@ -192,6 +231,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BB6D6E8219C5E6B5009DB45D /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = BB6D6E8119C5E6B5009DB45D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BB6D6E8419C5E6B5009DB45D /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = BB6D6E8319C5E6B5009DB45D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BB1D150C19C169F8001EC334 /* Resources */ = {
@@ -240,6 +296,11 @@
 			isa = PBXTargetDependency;
 			target = BB1D150D19C169F8001EC334 /* MU110-3 */;
 			targetProxy = BB1D152119C169F8001EC334 /* PBXContainerItemProxy */;
+		};
+		BB6D6E8619C5E71C009DB45D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = BB6D6E8519C5E71C009DB45D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -396,6 +457,7 @@
 				BB1D152C19C169F8001EC334 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB1D152D19C169F8001EC334 /* Build configuration list for PBXNativeTarget "MU110-3Tests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +466,7 @@
 				BB1D152F19C169F8001EC334 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

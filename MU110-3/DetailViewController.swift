@@ -10,12 +10,18 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var lectureNumber: UILabel!
-    @IBOutlet weak var lectureName: UILabel!
+    @IBOutlet weak var lectureNameLabel: UILabel!
+    @IBOutlet weak var lectureDescriptionLabel: UILabel!
+
     
+    var lectureName        : String = "Lecture Name"
+    var lectureDescription : String = "Lecture Description"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.lectureNameLabel.text = lectureName
+        self.lectureDescriptionLabel.text = lectureDescription
 
     }
 

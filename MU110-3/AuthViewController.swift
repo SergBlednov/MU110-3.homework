@@ -12,9 +12,6 @@ class AuthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        println("AuthViewController did load")
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,4 +20,11 @@ class AuthViewController: UIViewController {
     }
 
 
+    @IBAction func registerButtonTouched(sender: UIButton) {
+        
+               //        if(!user.isLoginIn) {
+        let loginController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as UIViewController
+        navigationController!.presentViewController(loginController, animated: true, completion: nil)
+        //        }
+    }
 }

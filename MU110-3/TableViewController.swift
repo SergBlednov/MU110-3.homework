@@ -7,23 +7,21 @@
 //
 
 import UIKit
-
+import Alamofire
 
 class TableViewController: UITableViewController {
-
-    let lectureList = ["Основы синтаксиса Swift", "Cocoa и Swift", "Архитектура правильного swift проекта", "Работа с сетью и Alamofire",
-        "Objective C и Swift", "Дебаг, Тестирование и AppStore", "По результатам голосования группы"];
+    
+    var items: NSArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        println("Main ViewController did load")
-        
-        //if(!user.isLoginIn) {
-//        let loginController: UIViewController = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController() as UIViewController
-//        navigationController!.presentViewController(loginController, animated: true, completion: nil)
-        //}
-        
+        Alamofire.request(.GET, "http://weekly.master-up.net/api/v1/lecture/list/")
+            .responseJSON() { (request, response, JSON, error) in
+    
+                self.items = JSON as NSArray
+                self.tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,13 +30,22 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7;
+        
+        if let count = items?.count {
+            return count
+        }
+        return 0;
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LectureCell") as UITableViewCell
-        cell.textLabel?.text = "Лекция \(indexPath.row + 1)"
-        cell.detailTextLabel?.text = lectureList[indexPath.row]
+        if let item = self.items {
+            let lecture = item[indexPath.row] as NSDictionary
+            cell.textLabel?.text = "Лекция \(indexPath.row + 1)"
+            cell.detailTextLabel?.text = lecture["name"] as NSString
+        }
+        
+
         return cell
     }
     
@@ -48,8 +55,11 @@ class TableViewController: UITableViewController {
             let detailViewController = segue.destinationViewController as DetailViewController
             var indexPath: NSIndexPath = tableView.indexPathForSelectedRow()!
             detailViewController.title = "Лекция \(indexPath.row + 1)"
-            detailViewController.lectureNumber?.text = "Лекция \(indexPath.row + 1)"
-            detailViewController.lectureName?.text = lectureList[indexPath.row]
+            if let item = self.items {
+                let detailedLecture = item[indexPath.row] as NSDictionary
+                detailViewController.lectureName = detailedLecture["name"] as NSString
+                detailViewController.lectureDescription = detailedLecture["description"] as NSString
+            }
         }
         
     }
